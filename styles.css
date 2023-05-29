@@ -1,0 +1,23 @@
+body {
+    display: grid;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+    grid-template-columns: repeat(3, auto);
+  }
+
+.row {
+    border: 1px solid red;
+    height: 20px;
+    width: 20px;
+}
+
+.column {
+    border: 1px solid green;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+div{
+    display: inline-block;
+    margin-right: 2px;
+}
