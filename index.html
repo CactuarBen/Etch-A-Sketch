@@ -8,8 +8,49 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="container"></div>
+    <header> 
+        <h1> Sketching Application (JavaScript)</h1>
+    </header>
+    <main>
+    <div class ="left-control">
+        <div id="color-choice">
+            <input type="color" id="color-select">
+            <span>Pen Colour</span>
+        </div>
+        <div id="background-color-choice">
+            <input type="color" id="bg-color-select" value="#ffffff">
+            <span>Background Colour</span>
+        </div>
+        <button id="fill-all">
+            Colour Fill
+        </button>
+        <button id="pipette">
+            Pipette
+        </button>
+        <button id="eraser">
+            Eraser
+        </button>
+        <button id="rainbow">
+            Rainbow 
+        </button>
+        <button id="shader">
+            Shading
+        </button>
+        <button id="lighter">
+            Lighten
+        </button>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="10" class="slider" id="myRange">
+            <p>Grid size: <span id="demo"></span></p>
+        </div>
+        <button id="reset">
+            Clear All
+        </button>
+    </div>
+    <div id="gridContainer" class="right-canvas">
 
+    </div>
+    </main>
     <script type="text/javascript" src="./script.js"></script>
 </body>
 </html>
