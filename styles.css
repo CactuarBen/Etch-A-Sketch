@@ -1,23 +1,60 @@
-body {
-    display: grid;
-    grid-column-gap: 50px;
-    grid-row-gap: 50px;
+body{
+    background-color:silver;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
     grid-template-columns: repeat(3, auto);
   }
 
-.row {
-    border: 1px solid red;
-    height: 20px;
-    width: 20px;
+.left-control{
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:flex-start;
 }
 
-.column {
-    border: 1px solid green;
-    min-width: 20px;
-    min-height: 20px;
+.cell {
+    background-color: white;
+    border: 1px solid black;
+    width:1px;
+    height:1px;
 }
 
-div{
-    display: inline-block;
-    margin-right: 2px;
+
+ #gridContainer{
+    display: grid;
+    left:100%;
+    /* width: 100%;
+    height: 100%; */
+    position: absolute;
+    background-color: white;
+} 
+
+.row:hover{
+    background-color: red;
 }
+
+.column:hover{
+    background-color: red;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
