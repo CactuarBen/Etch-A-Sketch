@@ -12,35 +12,36 @@ const rangeSlider = document.querySelector('#myRange');
 const output = document.getElementById("demo");
 
 function createGrid(){
-    const gridNumber = rangeSlider.value;
-    let gridArea = gridNumber * gridNumber;
-
-    // Clear the existing grid
-    // container.innerHTML = '';
-
-    // Set the CSS custom property (--grid-size) to the new grid size
-    // container.style.setProperty('--grid-size', gridArea);
-
     //prints a sinle row
-    for (let i = 0; i<gridArea; i++){
-        let gridItem = document.createElement('div');
-        gridItem.classList.add('cell');
-        container.style.gridTemplateColumns = `repeat(${gridNumber}, 1fr)`;
-        container.style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
-        container.insertAdjacentElement('beforeend', gridItem);
-    }
+    container.innerHTML = "";
     
+    container.style.gridTemplateColumns = `repeat(${rangeSlider.value}, 1fr)`
+    container.style.gridTemplateRows = `repeat(${rangeSlider.value}, 1fr)`
+  
+    for (let i = 0; i < rangeSlider.value * rangeSlider.value; i++) {
+      const gridElement = document.createElement('div')
+      gridElement.classList.add('cell')
+      gridElement.addEventListener('mouseover', changeColor)
+      gridElement.addEventListener('mousedown', changeColor)
+      container.appendChild(gridElement)
+    }
 }
 
-function pixelSize() {
-    let gridPixels = container.querySelectorAll('div');
-    gridPixels.forEach(gridPixel => gridPixel.remove());
-    createGrid(rangeSlider.value);
-}
-
+function changeColor(e) {
+    if (e.type === 'mouseover' && !mouseDown) return
+    if (currentMode === 'rainbow') {
+      const randomR = Math.floor(Math.random() * 256)
+      const randomG = Math.floor(Math.random() * 256)
+      const randomB = Math.floor(Math.random() * 256)
+      e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+    } else if (currentMode === 'color') {
+      e.target.style.backgroundColor = currentColor
+    } else if (currentMode === 'eraser') {
+      e.target.style.backgroundColor = '#fefefe'
+    }
+  }
 
 // Event Listeners
-rangeSlider.addEventListener('mouseup', pixelSize);
 output.innerHTML = rangeSlider.value; // Display the default slider value
 
 
@@ -54,22 +55,34 @@ rangeSlider.addEventListener('input', createGrid);
 
 
 createGrid(rangeSlider.value);
+gridArea = rangeSlider.value;
 
-
-
-// const row = document.createElement('div');
-// const wholeRow = document.createElement('div')
-// row.classList.add('cell');
-
-
-// //fills the row with cells that make columns
-// for (let i = 0; i<gridSize-1; i++){
-//     const column = document.createElement('div');
-//     column.classList.add('cell');
-//     wholeRow.appendChild(column);
-
+//WORKING CODE WITHOUT FLEXBOX
+// for (let i = 0; i<rangeSlider.value; i++){
+//     let breaker = document.createElement('br');
+//     let gridItem = document.createElement('div');
+//     gridItem.classList.add('cell');
+//     container.appendChild(breaker);
+//     container.appendChild(gridItem);
+//     for (let j=0; j<rangeSlider.value-1; j++){
+//         let gridItem = document.createElement('div');
+//         gridItem.classList.add('cell');
+//         container.appendChild(gridItem);
+//     }
 // }
-// gridContainer.appendChild(wholeRow);
-// wholeRow.appendChild(row);
-// let br = document.createElement('br');
-// gridContainer.appendChild(br);
+
+//WORKING CODE WITH FLEXBOX 
+// for (let i = 0; i<rangeSlider.value; i++){
+//     let gridItem = document.createElement('div');
+//     gridItem.classList.add('cell');
+//     let rowDiv = document.createElement("div");
+//     rowDiv.classList.add('cell-div')
+//     container.appendChild(rowDiv);
+//     rowDiv.appendChild(gridItem);
+//     for (let j=0; j<rangeSlider.value-1; j++){
+//         let gridItem = document.createElement('div');
+//         gridItem.classList.add('cell');
+//         rowDiv.appendChild(gridItem);
+//     }
+// }
+//
