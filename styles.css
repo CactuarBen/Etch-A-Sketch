@@ -1,5 +1,5 @@
 body{
-    background-color:silver;
+    background-color:grey;
     min-height: 100vh;
 }
 
@@ -9,6 +9,24 @@ main {
     grid-row-gap: 20px;
     grid-template-columns: repeat(3, auto);
   }
+
+h1{
+    display:flex;
+    align-items: center;
+    justify-content:center ;
+    color: #5B42F3;
+}
+
+.color-description{
+    /* padding: 12px 18px; */
+    border-radius: 6px;
+    transition: 300ms;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+}
 
 .left-control{
     display:flex;
@@ -23,15 +41,10 @@ main {
     border: 1px solid black;
     margin:0;
     padding:0;
-}
-
-.cell-div{
-    margin:0;
-    padding:0;
     
 }
 
- #gridContainer{
+#gridContainer{
     display: grid;
     width: 500px;
     height: 500px;
@@ -48,7 +61,22 @@ main {
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+  }
+
+.slider {
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  }
+
+  .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
     width: 25px; /* Set a specific slider handle width */
@@ -56,10 +84,75 @@ main {
     background: #04AA6D; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+
+/* CSS */
+.button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 40%;
+  min-width: 120px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  /* padding: 12px 18px; */
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
   }
+}
+
+input[type="color"] {
+	border: none;
+	height: 30px;
+    width:100%;
+    opacity: 0;
+	display: block;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+#background-color-choice-wrapper, #color-choice-wrapper {
+    border-radius: 360px;
+    border-width: 2px;
+    border-style: solid;
+    height: 30px;
+    width:100%;
+}
