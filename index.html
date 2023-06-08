@@ -13,38 +13,38 @@
     </header>
     <main>
     <div class ="left-control">
-        <div id="color-choice">
+        <div id="color-choice-wrapper">
             <input type="color" id="color-select">
-            <span>Pen Colour</span>
         </div>
-        <div id="background-color-choice">
-            <input type="color" id="bg-color-select" value="#ffffff">
-            <span>Background Colour</span>
+        <span class="color-description">Pen Colour</span>
+        <div id="background-color-choice-wrapper">
+            <input type="color" id="bg-color-select">
         </div>
-        <button id="fill-all">
-            Colour Fill
+        <span class="color-description">Background Colour</span>
+        <button id="fill-all" class="button-64" role="button">
+            <span class="text">Colour Fill</span>
         </button>
-        <button id="pipette">
-            Pipette
+        <button id="pipette" class="button-64" role="button">
+            <span class="text">Pipette</span>
         </button>
-        <button id="eraser">
-            Eraser
+        <button id="eraser" class="button-64" role="button">
+            <span class="text">Eraser</span>
         </button>
-        <button id="rainbow">
-            Rainbow 
+        <button id="rainbow" class="button-64" role="button">
+            <span class="text">Rainbow</span>
         </button>
-        <button id="shader">
-            Shading
+        <button id="shader" class="button-64" role="button">
+            <span class="text">Shading</span>
         </button>
-        <button id="lighter">
-            Lighten
+        <button id="lighter" class="button-64" role="button">
+            <span class="text">Lighten</span>
         </button>
         <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="10" class="slider" id="myRange">
-            <p>Grid size: <span id="demo"></span></p>
+            <input type="range" min="1" max="60" value="16" class="slider" id="myRange">
+            <p class="color-description">Grid size: <span id="demo" ></span></p>
         </div>
-        <button id="reset">
-            Clear All
+        <button id="reset" class="button-64" role="button">
+            <span class="text">Clear All</span>
         </button>
     </div>
     <div id="gridContainer" class="right-canvas grid">
